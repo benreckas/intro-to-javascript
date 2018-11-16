@@ -116,8 +116,9 @@ const movies = [['Last Jedi', 2018], ['Baby Driver', 2017], ['The Departed', 201
 //   }
 // }
 
-movies.forEach(movie => {
-  if(movie[0] === 'Baby Driver') {
-    alert(`Your fav movie is ${movie[0]} and it was made in ${movie[1]}`);
-  }
-});
+// movies.forEach(movie => {
+//   if(movie[0] === 'Baby Driver') {
+//     alert(`Your fav movie is ${movie[0]} and it was made in ${movie[1]}`);
+//   }
+// });
+
