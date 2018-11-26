@@ -1,0 +1,8 @@
+body > * {
+  margin-bottom: 50px;
+}
+
+#container {
+  height: 100px;
+  background: lightgreen;
+}
