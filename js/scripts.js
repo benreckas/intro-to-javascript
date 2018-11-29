@@ -71,25 +71,50 @@
 // 4)  If number is a multiple of 3 and 5, log "FizzBuzz";
 // 5) If none of these multiples, then log the number;
 
+// function fizzBuzz(min, max) {
+//     const p = document.createElement('p');
+//     for (let i = min; i <= max; i++) {
+//         if (i % 3 === 0 && i % 5 === 0) {
+//             console.log(i, 'FizzBuzz');
+//             p.textContent = `${i} FizzBuzz`;
+//         } else if (i % 3 === 0) {
+//             console.log(i, 'fizz');
+//             p.textContent = `${i} fizz`;
+//         } else if (i % 5 === 0) {
+//             console.log(i, 'Buzz');
+//             p.textContent = `${i} Buzz`;
+//         } else {
+//             console.log(i);
+//             p.textContent = `${i}`;
+//         }
+//         document.body.appendChild(p);
+//     }
+// }
+
+// fizzBuzz(1, 100);
+
 function fizzBuzz(min, max) {
-    const p = document.createElement('p');
     for (let i = min; i <= max; i++) {
         if (i % 3 === 0 && i % 5 === 0) {
-            console.log(i, 'FizzBuzz');
-            p.textContent = `${i} FizzBuzz`;
+            // console.log(i, 'FizzBuzz');
+            createItem(i, 'FizzBuzz');
         } else if (i % 3 === 0) {
-            console.log(i, 'fizz');
-            p.textContent = `${i} fizz`;
+            // console.log(i, 'Fizz');
+            createItem(i, 'Fizz');
         } else if (i % 5 === 0) {
-            console.log(i, 'Buzz');
-            p.textContent = `${i} Buzz`;
+            // console.log(i, 'Buzz');
+            createItem(i, 'Buzz');
         } else {
-            console.log(i);
-            p.textContent = `${i}`;
+            // console.log(i);
+            createItem(i);
         }
-        document.body.appendChild(p);
-
     }
+}
+
+function createItem(i, str) {
+    const p = document.createElement('p');
+    !str ? p.textContent = i : p.textContent = `${i} ${str}`;
+    document.body.appendChild(p);
 }
 
 fizzBuzz(1, 100);
