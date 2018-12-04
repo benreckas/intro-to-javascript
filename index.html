@@ -9,6 +9,25 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div class="col-md-8 offset-md-2">
+    <form name="todoForm">
+      <label for="todo-input">Add Todo</label>
+      <input id="todo-input" class="form-control" type="text" name="formInput">
+      <button class="btn btn-success" type="submit" name="submit">Submit</button>
+    </form>
+  </div>
+  <section id="todo">
+    <h1 class="text-center">Todo</h1>
+    <ul id="todo-list">
+      <!-- Todo items -->
+    </ul>
+  </section>
+  <senction id="done">
+    <h1 class="text-center">Done</h1>
+    <ul id="done-list">
+      <!-- Completed items -->
+    </ul>
+  </senction>
 
   <!-- JavaScript -->
   <script type="text/javascript" src="js/scripts.js"></script>

@@ -1,0 +1,15 @@
+form {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 12px;
+  align-content: center;
+  margin-top: 40px;
+}
+
+form label {
+  margin: auto;
+}
+
+h1 {
+  margin: 40px auto;
+}
