@@ -11,6 +11,18 @@ function fetchData(url) {
   .catch(error => console.log(error))
 }
 
+// async function fetchData(url) {
+//   try {
+//     const resp = await fetch(url);
+//     const data = await resp.json();
+//     const next = data.info.next;
+//     if (next) { fetchData(next) }
+//     makeHTML(data);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
 fetchData('https://rickandmortyapi.com/api/character/');
 
 function makeHTML(data) {
