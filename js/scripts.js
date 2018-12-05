@@ -1,72 +1,30 @@
-// function Animal(name, energy) {
-//   this.name = name;
-//   this.energy = energy;
+// Fetch API
 
-//   this.sayName = function() {
-//     console.log(this.name);
-//   }
-// }
+function fetchData(url) {
+  fetch(url)
+  .then(resp => resp.json())
+  .then(data => {
+    const next = data.info.next;
+    if (next) { fetchData(next) }
+    makeHTML(data)
+  })
+  .catch(error => console.log(error))
+}
 
-// const dog = new Animal('Dog', 20);
-// const cat = new Animal('Cat', 5);
+fetchData('https://rickandmortyapi.com/api/character/');
 
-// dog.sayName();
-// cat.sayName();
-
-// Animal.prototype.run = function(amount) {
-//   this.energy -= 5;
-// }
-
-// console.log(dog.energy);
-// dog.run();
-// console.log(dog.energy);
-
-// function Animal(name, energy) {
-//   this.name = name;
-//   this.energy = energy;
-
-//   this.sayName = function() {
-//     console.log(this.name);
-//   }
-// }
-
-// function Dog(name, energy, breed) {
-//   Animal.call(this, ...arguments);
-
-//   this.breed = breed;
-// }
-
-// const charlie = new Dog('Charlie', 40, 'Mutt');
-
-// console.log(charlie);
-// charlie.sayName();
-
-// const hawk = new Animal('Hawk', 60, 'Redtail');
-// hawk.sayName();
-
-// class Animal {
-//   constructor(name, age) {
-//     this.name = name;
-//     this.age = age;
-//   }
-
-//   sayName() {
-//     console.log(this.name);
-//   }
-// }
-
-// const ben = new Animal('Ben', 29);
-// console.log(ben);
-// ben.sayName();
-
-// class Dog extends Animal {
-//   constructor(name, age, breed) {
-//     super(...arguments);
-
-//     this.breed = breed;
-//   }
-// }
-
-// const fido = new Dog('Fido', 7, 'Goldendoodle');
-// console.log(fido);
-// fido.sayName();
+function makeHTML(data) {
+  data.results.forEach(character => {
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.innerHTML = `
+      <img class="card-img-top" src="${character.image}">
+      <div class="card-body">
+        <h2 class="card-title">${character.name}</h2>
+        <p class="card-text">Species: ${character.species}</p>
+        <p class="card-text">Location: ${character.location.name}</p>
+      </div>
+    `
+    document.body.appendChild(div);
+  })
+}
